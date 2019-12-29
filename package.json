@@ -1,0 +1,29 @@
+{
+  "name": "ico",
+  "version": "0.0.1",
+  "description": "ERC-20 token",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Draichi/ERC-20--MESE.git"
+  },
+  "keywords": [
+    "erc-20"
+  ],
+  "author": "igor bogdanoff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Draichi/ERC-20--MESE/issues"
+  },
+  "homepage": "https://github.com/Draichi/ERC-20--MESE#readme",
+  "dependencies": {
+    "ganache-cli": "^6.7.0",
+    "truffle": "^5.1.6"
+  }
+}
