@@ -52,6 +52,6 @@ contract('Token', accounts => {
   it('approves tokens for delegated transfers', async () => {
     const tokenInstance = await Token.deployed()
     const success = await tokenInstance.approve.call(accounts[1], 100);
-    assert.equal(success, false)
+    assert.equal(success, true)
   });
 })
