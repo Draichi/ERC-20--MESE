@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "ganache-cli -p 7545 & truffle test"
+    "ci:test": "ganache-cli -p 7545 & truffle test",
+    "serve": "npx ganache-cli -p 7545",
+    "dev": "npx truffle develop"
   },
   "repository": {
     "type": "git",

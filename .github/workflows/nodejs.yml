@@ -20,6 +20,6 @@ jobs:
     - name: setup pkgsand run test
       run: npm ci
     - name: run test
-      run: npm test
+      run: npm ci:test
       env:
         CI: true
