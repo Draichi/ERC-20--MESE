@@ -1,28 +1,16 @@
 var Token = artifacts.require('./Token.sol')
 
 contract('Token', accounts => {
-  it('initializes the contract with the correct values', () => {
-    return Token.deployed().then(instance => {
-      tokenInstance = instance
-      return tokenInstance.name()
-    }).then(name => {
-      assert.equal(name, 'MESI', 'has the correct name')
-      return tokenInstance.symbol()
-    }).then(symbol => {
-      assert.equal(symbol, 'MESI', 'has the correct symbol')
-
-    })
-  })
-  it('sets the total supply upon development', () => {
-    return Token.deployed().then(instance => {
-      tokenInstance = instance
-      return tokenInstance.totalSupply()
-    }).then(totalSupply => {
-      assert.equal(totalSupply.toNumber(), 1000000, 'sets the total supply to')
-      return tokenInstance.balanceOf(accounts[0])
-    }).then(adminBalance => {
-      assert.equal(adminBalance.toNumber(), 1000000, 'it allocates the initial supply to the admin')
-    })
+  it('initializes the contract with the correct values', async () => {
+    const tokenInstance = await Token.deployed()
+    const name = await tokenInstance.name()
+    const symbol = await tokenInstance.symbol()
+    const totalSupply = await tokenInstance.totalSupply()
+    const adminBalance = await tokenInstance.balanceOf(accounts[0])
+    assert.equal(name, 'MESI', 'has the correct name')
+    assert.equal(symbol, 'MESI', 'has the correct symbol')
+    assert.equal(totalSupply.toNumber(), 1000000, 'sets the total supply to 1000000')
+    assert.equal(adminBalance.toNumber(), 1000000, 'it allocates the initial supply to the admin')
   })
   it('transfers token ownership', () => {
     return Token.deployed().then(instance => {
