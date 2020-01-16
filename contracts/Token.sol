@@ -10,7 +10,11 @@ contract Token {
         address indexed _to,
         uint256 _value
     );
-
+    event Approve(
+        address indexed _owner,
+        address indexed _spender,
+        uint _value
+    );
     mapping (address=>uint256) public balanceOf;
 
     constructor(uint256 _initialSupply) public {
@@ -24,6 +28,11 @@ contract Token {
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
         emit Transfer(msg.sender, _to, _value);
+        return true;
+    }
+
+    function approve(address _spender, uint _value) public returns (bool success) {
+        emit Approve(msg.sender, _spender, _value);
         return true;
     }
 }

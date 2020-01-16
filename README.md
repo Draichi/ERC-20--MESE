@@ -11,4 +11,4 @@
 
 - colocar no packg json o truffle e o ganache
 
-https://www.youtube.com/watch?v=jfFgecLL8UA&list=PLS5SEs8ZftgWFuKg2wbm_0GLV0Tiy1R-n&index=4
+https://www.youtube.com/watch?v=KT5PdaFpuvY&list=PLS5SEs8ZftgWFuKg2wbm_0GLV0Tiy1R-n&index=6
