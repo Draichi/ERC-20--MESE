@@ -10,7 +10,7 @@ contract Token {
         address indexed _to,
         uint256 _value
     );
-    event Approve(
+    event Approval(
         address indexed _owner,
         address indexed _spender,
         uint _value
@@ -24,7 +24,7 @@ contract Token {
     }
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
-        require(balanceOf[msg.sender] >= _value);
+        require(balanceOf[msg.sender] >= _value, 'Your balance is insufficient');
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
         emit Transfer(msg.sender, _to, _value);
@@ -32,7 +32,7 @@ contract Token {
     }
 
     function approve(address _spender, uint _value) public returns (bool success) {
-        emit Approve(msg.sender, _spender, _value);
+        emit Approval(msg.sender, _spender, _value);
         return true;
     }
 }
