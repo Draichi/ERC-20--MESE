@@ -16,6 +16,7 @@ contract Token {
         uint _value
     );
     mapping (address=>uint256) public balanceOf;
+    mapping (address=>mapping(address=>uint256)) public allowance;
 
     constructor(uint256 _initialSupply) public {
         balanceOf[msg.sender] = _initialSupply;
@@ -32,7 +33,12 @@ contract Token {
     }
 
     function approve(address _spender, uint _value) public returns (bool success) {
+        allowance[msg.sender][_spender] = _value;
         emit Approval(msg.sender, _spender, _value);
         return true;
+    }
+
+    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success){
+        // 
     }
 }
