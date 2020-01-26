@@ -45,7 +45,7 @@ contract('Token', accounts => {
     const allowance = await tokenInstance.allowance(accounts[0], accounts[1])
     assert.equal(allowance.toNumber(), 100, 'stores the allowance for delegated transfer')
   });
-  it('handles delegated token transfers', () => {
+  it('handles delegated token transfers', async () => {
     const tokenInstance = await Token.deployed()
     const fromAccount = accounts[2]
     const toAccount = accounts[3]
