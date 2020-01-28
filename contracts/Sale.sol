@@ -9,7 +9,15 @@ contract Sale {
         tokenPrice = _tokenPrice;
     }
 
+    event Sell(address _buyer, uint256 _amount);
+
     address admin;
     Token public tokenContract;
     uint256 public tokenPrice;
+    uint256 public tokensSold;
+
+    function buyTokens(uint256 _numberOfTokens) public payable {
+        tokensSold += _numberOfTokens;
+        emit Sell(msg.sender, _numberOfTokens);
+    }
 }
