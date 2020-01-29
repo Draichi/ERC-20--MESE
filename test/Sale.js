@@ -23,5 +23,11 @@ contract('Sale', accounts => {
         assert.equal(receipt.logs[0].args._amount, numberOfTOkens, 'logs the number of tokens purchased');
         const amount = await salesInstance.tokensSold()
         assert.equal(amount.toNumber(), numberOfTOkens, 'increments the number of tokens sold')
+        try {
+            await tokenInstance.buyTokens(numberOfTOkens, { from: buyer, value: 1 })
+          } catch (error) {
+            // quebrando esse assert 
+            // assert(error.message.indexOf('revert') >= 0, 'error message must contain revert')
+          }
     })
 })

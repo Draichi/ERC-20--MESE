@@ -16,7 +16,12 @@ contract Sale {
     uint256 public tokenPrice;
     uint256 public tokensSold;
 
+    function multiply(uint x, uint y) internal pure returns (uint z) {
+        require(y == 0 || (z = x * y) / y == x, 'safe multiply');
+    }
+
     function buyTokens(uint256 _numberOfTokens) public payable {
+        require(msg.value == multiply(_numberOfTokens, tokenPrice), 'require that value is equal to tokens');
         tokensSold += _numberOfTokens;
         emit Sell(msg.sender, _numberOfTokens);
     }
