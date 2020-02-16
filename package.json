@@ -9,7 +9,8 @@
   "scripts": {
     "ci:test": "ganache-cli -p 7545 & truffle test",
     "serve": "npx ganache-cli -p 7545",
-    "dev": "npx truffle develop"
+    "dev": "npx truffle develop",
+    "build": "browserify dist/app.js > dist/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,11 @@
   },
   "homepage": "https://github.com/Draichi/ERC-20--MESE#readme",
   "dependencies": {
+    "@truffle/contract": "^4.1.9",
     "ganache-cli": "^6.7.0",
     "truffle": "^5.1.6"
+  },
+  "devDependencies": {
+    "browserify": "^16.5.0"
   }
 }
